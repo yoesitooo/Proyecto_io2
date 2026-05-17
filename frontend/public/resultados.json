@@ -1,0 +1,328 @@
+{
+  "meta": {
+    "horizonte": 14,
+    "makespan_heuristica": 11,
+    "makespan_milp": 11,
+    "status_milp": "Optimal",
+    "generado_en": "2026-05-16T19:27:19.817668"
+  },
+  "hospitales": {
+    "0": {
+      "nombre": "CRUE (Centro de Distribución)",
+      "nivel": 0,
+      "prioridad": 0
+    },
+    "1": {
+      "nombre": "Hospital Simón Bolívar",
+      "nivel": 3,
+      "prioridad": 10
+    },
+    "2": {
+      "nombre": "Hospital de Kennedy",
+      "nivel": 3,
+      "prioridad": 10
+    },
+    "3": {
+      "nombre": "Hospital de Suba",
+      "nivel": 2,
+      "prioridad": 6
+    },
+    "4": {
+      "nombre": "Hospital de Bosa",
+      "nivel": 2,
+      "prioridad": 6
+    },
+    "5": {
+      "nombre": "Hospital de Usme",
+      "nivel": 2,
+      "prioridad": 6
+    },
+    "6": {
+      "nombre": "Hospital de Fontibón",
+      "nivel": 1,
+      "prioridad": 3
+    },
+    "7": {
+      "nombre": "Hospital de Engativá",
+      "nivel": 1,
+      "prioridad": 3
+    }
+  },
+  "arcos": [
+    {
+      "origen": 0,
+      "destino": 1,
+      "transito_h": 1.2
+    },
+    {
+      "origen": 0,
+      "destino": 2,
+      "transito_h": 1.5
+    },
+    {
+      "origen": 1,
+      "destino": 3,
+      "transito_h": 0.8
+    },
+    {
+      "origen": 1,
+      "destino": 5,
+      "transito_h": 1.0
+    },
+    {
+      "origen": 2,
+      "destino": 4,
+      "transito_h": 0.9
+    },
+    {
+      "origen": 2,
+      "destino": 5,
+      "transito_h": 1.1
+    },
+    {
+      "origen": 3,
+      "destino": 6,
+      "transito_h": 0.6
+    },
+    {
+      "origen": 4,
+      "destino": 7,
+      "transito_h": 0.7
+    },
+    {
+      "origen": 5,
+      "destino": 6,
+      "transito_h": 0.5
+    },
+    {
+      "origen": 5,
+      "destino": 7,
+      "transito_h": 0.5
+    }
+  ],
+  "recursos_disponibles": {
+    "ventilador": 6,
+    "rayos_x": 4,
+    "monitor": 8
+  },
+  "calendario": [
+    {
+      "id": "j1",
+      "hospital": 1,
+      "hospital_nombre": "Hospital Simón Bolívar",
+      "recurso": "ventilador",
+      "duracion": 4,
+      "inicio": 2,
+      "fin": 5,
+      "holgura": 0,
+      "critica": true,
+      "prioridad": 10,
+      "ventana": [
+        1,
+        5
+      ]
+    },
+    {
+      "id": "j2",
+      "hospital": 2,
+      "hospital_nombre": "Hospital de Kennedy",
+      "recurso": "ventilador",
+      "duracion": 3,
+      "inicio": 4,
+      "fin": 6,
+      "holgura": 0,
+      "critica": true,
+      "prioridad": 10,
+      "ventana": [
+        1,
+        6
+      ]
+    },
+    {
+      "id": "j3",
+      "hospital": 1,
+      "hospital_nombre": "Hospital Simón Bolívar",
+      "recurso": "monitor",
+      "duracion": 5,
+      "inicio": 2,
+      "fin": 6,
+      "holgura": 0,
+      "critica": true,
+      "prioridad": 10,
+      "ventana": [
+        2,
+        8
+      ]
+    },
+    {
+      "id": "j4",
+      "hospital": 3,
+      "hospital_nombre": "Hospital de Suba",
+      "recurso": "rayos_x",
+      "duracion": 3,
+      "inicio": 3,
+      "fin": 5,
+      "holgura": 4,
+      "critica": false,
+      "prioridad": 6,
+      "ventana": [
+        3,
+        9
+      ]
+    },
+    {
+      "id": "j5",
+      "hospital": 4,
+      "hospital_nombre": "Hospital de Bosa",
+      "recurso": "monitor",
+      "duracion": 4,
+      "inicio": 3,
+      "fin": 6,
+      "holgura": 1,
+      "critica": false,
+      "prioridad": 6,
+      "ventana": [
+        1,
+        7
+      ]
+    },
+    {
+      "id": "j6",
+      "hospital": 2,
+      "hospital_nombre": "Hospital de Kennedy",
+      "recurso": "monitor",
+      "duracion": 3,
+      "inicio": 4,
+      "fin": 6,
+      "holgura": 0,
+      "critica": true,
+      "prioridad": 10,
+      "ventana": [
+        4,
+        10
+      ]
+    },
+    {
+      "id": "j7",
+      "hospital": 5,
+      "hospital_nombre": "Hospital de Usme",
+      "recurso": "rayos_x",
+      "duracion": 2,
+      "inicio": 10,
+      "fin": 11,
+      "holgura": 0,
+      "critica": true,
+      "prioridad": 6,
+      "ventana": [
+        5,
+        11
+      ]
+    },
+    {
+      "id": "j8",
+      "hospital": 6,
+      "hospital_nombre": "Hospital de Fontibón",
+      "recurso": "ventilador",
+      "duracion": 3,
+      "inicio": 7,
+      "fin": 9,
+      "holgura": 3,
+      "critica": false,
+      "prioridad": 3,
+      "ventana": [
+        6,
+        12
+      ]
+    },
+    {
+      "id": "j9",
+      "hospital": 7,
+      "hospital_nombre": "Hospital de Engativá",
+      "recurso": "monitor",
+      "duracion": 4,
+      "inicio": 8,
+      "fin": 11,
+      "holgura": 2,
+      "critica": false,
+      "prioridad": 3,
+      "ventana": [
+        7,
+        13
+      ]
+    },
+    {
+      "id": "j10",
+      "hospital": 3,
+      "hospital_nombre": "Hospital de Suba",
+      "recurso": "monitor",
+      "duracion": 3,
+      "inicio": 8,
+      "fin": 10,
+      "holgura": 4,
+      "critica": false,
+      "prioridad": 6,
+      "ventana": [
+        8,
+        14
+      ]
+    }
+  ],
+  "perfil_recursos": {
+    "ventilador": [
+      0,
+      2,
+      2,
+      4,
+      4,
+      2,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "rayos_x": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      0,
+      0,
+      0
+    ],
+    "monitor": [
+      0,
+      3,
+      5,
+      7,
+      7,
+      7,
+      0,
+      4,
+      4,
+      4,
+      2,
+      0,
+      0,
+      0
+    ]
+  },
+  "ruta_critica": [
+    "j1",
+    "j6",
+    "j3",
+    "j2",
+    "j7"
+  ],
+  "resumen_texto": "El plan óptimo distribuye 10 tareas en 11 días."
+}
