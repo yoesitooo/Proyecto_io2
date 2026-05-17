@@ -98,27 +98,25 @@ export function resolverSGT(tareas, recursosDisp, horizonte, arcos) {
     return es;
   }
 
-  // 3. SGT: iteramos hasta que no haya progreso o todo esté programado
-  let progreso = true;
-  while (pendientes.size > 0 && progreso) {
-    progreso = false;
-
-    // Elegibles: predecesoras ya programadas
+  // 3. SGT multi-pasada: iteramos por días para simular avance del tiempo
+  // En cada t buscamos tareas elegibles y las programamos lo antes posible
+  for (let t = 1; t <= horizonte && pendientes.size > 0; t++) {
+    // Elegibles en el instante t: predecesoras completas y ventana ya abierta
     const elegibles = [...pendientes]
       .map(id => tareaMap[id])
-      .filter(t => t.predecesoras.every(p => programadas[p]))
+      .filter(t2 => t2.predecesoras.every(p => programadas[p]) && t2.ventana[0] <= t)
       .sort((a, b) => a.ventana[1] - b.ventana[1]); // MLFT: LF ascendente
 
     for (const tarea of elegibles) {
-      const es = getES(tarea);
-      const maxStart = Math.max(es, horizonte - tarea.duracion + 1);
+      const es = Math.max(t, getES(tarea));
+      // Busca desde es hasta el final del horizonte (relaxación si no cabe en ventana)
+      const searchEnd = horizonte - tarea.duracion + 1;
 
-      for (let s = es; s <= maxStart; s++) {
+      for (let s = es; s <= searchEnd; s++) {
         if (esFeasible(tarea.demanda, s, tarea.duracion)) {
           reservar(tarea.demanda, s, tarea.duracion);
           programadas[tarea.id] = { inicio: s, fin: s + tarea.duracion - 1 };
           pendientes.delete(tarea.id);
-          progreso = true;
           break;
         }
       }
