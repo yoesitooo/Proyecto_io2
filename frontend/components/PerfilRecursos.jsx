@@ -8,7 +8,7 @@ export default function PerfilRecursos({ recursos_disponibles, perfil_recursos, 
   // Transformar datos para Recharts
   const data = [];
   for (let t = 0; t < horizonte; t++) {
-    const dayData = { day: \`Día \${t + 1}\` };
+    const dayData = { day: `Día ${t + 1}` };
     Object.keys(perfil_recursos).forEach((r) => {
       dayData[r] = perfil_recursos[r][t];
     });

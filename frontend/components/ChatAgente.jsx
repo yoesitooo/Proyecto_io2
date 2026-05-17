@@ -69,11 +69,11 @@ export default function ChatAgente({ resultados }) {
           </div>
         ) : (
           historial.map((msg, i) => (
-            <div key={i} className={`flex gap-3 \${msg.rol === "user" ? "flex-row-reverse" : ""}`}>
-              <div className={`p-2 rounded-full h-8 w-8 flex items-center justify-center shrink-0 \${msg.rol === "user" ? "bg-[#333]" : "bg-[#222]"}`}>
+            <div key={i} className={`flex gap-3 ${msg.rol === "user" ? "flex-row-reverse" : ""}`}>
+              <div className={`p-2 rounded-full h-8 w-8 flex items-center justify-center shrink-0 ${msg.rol === "user" ? "bg-[#333]" : "bg-[#222]"}`}>
                 {msg.rol === "user" ? <User className="w-4 h-4 text-gray-300" /> : <Bot className="w-4 h-4 text-gray-300" />}
               </div>
-              <div className={`px-4 py-3 rounded-2xl max-w-[80%] text-sm \${msg.rol === "user" ? "bg-[#222] text-gray-200 rounded-tr-none" : "bg-[#1a1a1a] border border-[#333] text-gray-300 rounded-tl-none whitespace-pre-wrap"}`}>
+              <div className={`px-4 py-3 rounded-2xl max-w-[80%] text-sm ${msg.rol === "user" ? "bg-[#222] text-gray-200 rounded-tr-none" : "bg-[#1a1a1a] border border-[#333] text-gray-300 rounded-tl-none whitespace-pre-wrap"}`}>
                 {msg.texto}
               </div>
             </div>
