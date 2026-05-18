@@ -30,6 +30,7 @@ aplicado a la distribución de equipos médicos en hospitales de Bogotá.
 La heurística usada es SGT-MLFT (Serial Generation Scheme, Minimum Late Finish Time).
 
 RESULTADOS EXACTOS DEL MODELO (usa estrictamente estos datos, no inventes nada):
+- Estado de factibilidad: ${resultado.factible ? "SOLUCIÓN FACTIBLE" : "SIN SOLUCIÓN FACTIBLE (recursos o tiempo insuficientes para todas las tareas)"}
 - Makespan (duración total): ${resultado.makespan} días
 - Horizonte de planificación: ${config.horizonte} días
 - Recursos disponibles: ventiladores=${config.recursos.ventilador}, rayos_x=${config.recursos.rayos_x}, monitores=${config.recursos.monitor}
@@ -47,10 +48,11 @@ Rayos X:      [${(resultado.perfilRecursos.rayos_x || []).join(", ")}]
 Monitores:    [${(resultado.perfilRecursos.monitor || []).join(", ")}]
 
 Reglas de respuesta:
-1. Responde en español.
-2. Sé directo y usa SÓLO los datos concretos provistos en este contexto.
-3. Máximo 3 párrafos.
-4. Si el usuario hace una pregunta matemática, básate estrictamente en las métricas listadas arriba.
+1. Responde en español de forma directa y concisa (máximo 3 párrafos).
+2. Usa SÓLO los datos exactos de este contexto. NUNCA inventes tareas, hospitales, fechas o recursos.
+3. Si el estado es "SIN SOLUCIÓN FACTIBLE", debes dejar clarísimo que el modelo falló porque los recursos o el horizonte de tiempo son insuficientes para programar todas las demandas.
+4. Si el calendario está vacío o incompleto, indícalo como prueba de la infactibilidad.
+5. No asumas que la solución es válida si el estado de factibilidad dice lo contrario.
 `;
 
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
