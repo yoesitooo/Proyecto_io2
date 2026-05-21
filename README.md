@@ -52,10 +52,5 @@ npm run dev
 # Abrir http://localhost:3000
 ```
 
-## Cómo desplegar en Vercel:
-1. Subir el repositorio a GitHub
-2. Ir a vercel.com → New Project → importar el repo
-3. En Environment Variables agregar: ANTHROPIC_API_KEY = sk-ant-...
-4. Deploy → el frontend queda en https://tu-proyecto.vercel.app
 
 **Nota:** El modelo Python se corre localmente para generar `resultados.json`, que se sube al repo dentro de `frontend/public/`. El agente IA funciona en Vercel via la API route protegida.
